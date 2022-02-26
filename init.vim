@@ -177,3 +177,10 @@ let g:quickrun#default_config = {
 autocmd TermOpen * startinsert
 tnoremap <Esc> <C-\><C-n>
 command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
+
+
+
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('sources', {
+\ 'gitcommit': ['look'],
+\})
