@@ -1,5 +1,4 @@
 set encoding=utf-8
-
 " editor setting
 set number
 set splitbelow
@@ -144,3 +143,37 @@ nnoremap <Right> :bn<CR>
 let g:airline#extensions#tabline#enabled = 1
 " powerline font入れないと若干ダサい
 let g:airline_powerline_fonts = 1
+
+
+" 実行時に前回の表示内容をクローズ&保存してから実行
+let g:quickrun_no_default_key_mappings = 1
+" nmap <Leader>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
+
+" nnoremap <F11> :QuickRun<CR>
+nnoremap run :QuickRun<CR>
+nnoremap <C-v><F11> :QuickRun<CR>
+
+" \   'outputter/buffer/close_on_empty': 1
+let g:quickrun#default_config = {
+\ '_': {
+\   'hook/time/enable': 1,
+\   'outputter/buffer/split': 'botright',
+\   'outputter/error/error': 'quickfix',
+\   'outputter/error/success': 'buffer',
+\   'outputter/quickfix/open_cmd': 'copen',
+\   'runner': 'vimproc',
+\   'runner/vimproc/updatetime': 60,
+\ },
+\ 'python': {
+\   'command': 'python3',
+\ },
+\ 'cpp': {
+\   'command': 'g++',
+\   'input': 'test/sample-1.in',
+\   'runner': 'system',
+\ },
+\}
+
+autocmd TermOpen * startinsert
+tnoremap <Esc> <C-\><C-n>
+command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
