@@ -1,0 +1,36 @@
+# https://qiita.com/delphinus/items/00ff2c0ba972c6e41542
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+source = 'release'
+build = 'coc#util#install()'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline.git'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes.git'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo ='ujihisa/neco-look'
