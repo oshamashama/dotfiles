@@ -25,8 +25,9 @@ set undodir=~/log-file-position/
 
 " status を常時表示
 set laststatus=2
-set title
+" set title
 
+" set statusline^=%{coc#status()}
 
 
 " https://qiita.com/nobu-maple/items/8f4e29ac40e8ac8cbe03
@@ -39,7 +40,7 @@ set scrolloff=4
 " 保存されていないファイルがあるときは終了前に保存確認
 set confirm
 " 保存されていないファイルがあるときでも別のファイルを開くことが出来る
-set hidden
+" set hidden
 " 外部でファイルに変更がされた場合は読みなおす
 set autoread
 " ファイル保存時にバックアップファイルを作らない
@@ -86,3 +87,60 @@ set wildmenu wildmode=list:longest,full
 set history=10000
 
 
+
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=/home/shama/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+call dein#begin('/home/shama/.cache/dein')
+
+" Let dein manage dein
+" Required:
+"call dein#add('/home/shama/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+" Add or remove your plugins here like this:
+"call dein#add('Shougo/neosnippet.vim')
+"call dein#add('Shougo/neosnippet-snippets')
+call dein#add('vim-jp/vimdoc-ja')
+
+" add
+call dein#load_toml('/home/shama/.config/nvim/dein.toml', {'lazy': 0})
+call dein#load_toml('/home/shama/.config/nvim/dein_lazy.toml', {'lazy': 1})
+
+" Required:
+call dein#end()
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
+
+"End dein Scripts-------------------------
+
+
+
+" for coc-pairs
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+
+" for airline
+let g:airline_theme='badwolf'
+let g:airline#extensions#tabline#enabled=1
+let g:airline_powerline_fonts=1
+
+" カーソルキーでbuffer移動
+nnoremap <Left> :bp<CR>
+nnoremap <Right> :bn<CR>
+" Smarter tab line有効化
+let g:airline#extensions#tabline#enabled = 1
+" powerline font入れないと若干ダサい
+let g:airline_powerline_fonts = 1
